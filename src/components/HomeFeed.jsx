@@ -4,8 +4,9 @@ import { supabase } from '../../client'
 import { Link } from "react-router-dom"
 import Post from "../components/Post";
 
-const HomeFeed = () => {
+const HomeFeed = ({searchField}) => {
     const [posts, setPosts] = useState([])
+    const [filteredPosts, setFilteredPosts] = useState([])
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -16,23 +17,28 @@ const HomeFeed = () => {
                 .select()
                 .order("created_at", { ascending: true });
             setPosts(data);
+            setFilteredPosts(data);
         };
 
         fetchPosts()
     }, []);
 
+    useEffect(() => {
+        setFilteredPosts(() => {
+            return posts.filter(post => post.title.toLowerCase().includes(searchField.toLowerCase()))
+        })
+    }, [searchField])
+
     const sortPostsByDate = () => {
-        var temp = [...posts]
+        var temp = [...filteredPosts]
         temp.sort((a, b) => (Date.parse(b.created_at) - Date.parse(a.created_at)))
-        console.log(temp)
-        console.log(posts)
-        setPosts(temp)
+        setFilteredPosts(temp)
     } 
 
     const sortPostsByUpvotes = () => {
-        var temp = [...posts]
+        var temp = [...filteredPosts]
         temp.sort((a, b) => (b.upvotes - a.upvotes))
-        setPosts(temp)
+        setFilteredPosts(temp)
     }
 
     return (
@@ -41,7 +47,7 @@ const HomeFeed = () => {
                 <button className="filterButton" onClick={sortPostsByDate}>Newest</button>
                 <button className="filterButton" onClick={sortPostsByUpvotes}>Most Popular</button>
             </div>
-            {posts ? (posts.map((post, index) => (
+            {filteredPosts ? (filteredPosts.map((post, index) => (
                 <Link key={index} className="post" to={`/${post.id}`}>
                     <Post timeCreated={post.created_at} title={post.title} upvotes={post.upvotes} />
                 </Link>
