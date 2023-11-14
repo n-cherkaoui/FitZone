@@ -11,9 +11,14 @@ const PostView = () => {
     const [comments, setComments] = useState(null)
     const [addedComments, setAddedComments] = useState(0)
 
-    // const Comment = async () => {
-    //     await supabase
-    //         .from('Posts')
+    const deletePost = async () => {
+        await supabase
+            .from('Posts')
+            .delete()
+            .eq("id", id);
+
+        window.location = "/"
+    }
 
     // }
     // const Comment = async () => {
@@ -21,7 +26,7 @@ const PostView = () => {
     //         .from('Posts')
 
     // }
-    
+
     const sendComment = async (e) => {
         e.preventDefault();
         if (e.key === 'Enter') {
@@ -97,7 +102,7 @@ const PostView = () => {
                         <button className="edit">
                             <FontAwesomeIcon icon={faPen} />
                         </button>
-                        <button className="delete">
+                        <button className="delete" onClick={deletePost}>
                             <FontAwesomeIcon icon={faTrash} />
                         </button>
                     </div>
