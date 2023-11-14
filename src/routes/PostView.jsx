@@ -11,8 +11,19 @@ const PostView = () => {
     const [comments, setComments] = useState(null)
     const [addedComments, setAddedComments] = useState(0)
 
+    // const Comment = async () => {
+    //     await supabase
+    //         .from('Posts')
+
+    // }
+    // const Comment = async () => {
+    //     await supabase
+    //         .from('Posts')
+
+    // }
+    
     const sendComment = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (e.key === 'Enter') {
 
             console.log(e.target.value)
@@ -27,6 +38,19 @@ const PostView = () => {
             // Redirect to the home page
             // window.location = "/";
         }
+    };
+
+    const addUpvote = async (e) => {
+        e.preventDefault();
+
+        setPost({ ...post, upvotes: post.upvotes + 1 })
+
+        await supabase
+            .from("Posts")
+            .update({ upvotes: post.upvotes + 1 })
+            .eq("id", id);
+
+        // window.location = "/gallery";
     };
 
     useEffect(() => {
@@ -64,7 +88,7 @@ const PostView = () => {
                     <h2>{post.content}</h2>
                     <img src={post.image} />
                     <div className="buttons">
-                        <button className="upvote">
+                        <button className="upvote" onClick={addUpvote}>
                             <FontAwesomeIcon
                                 icon={faThumbsUp}
                             />
