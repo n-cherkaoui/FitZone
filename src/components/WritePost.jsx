@@ -1,6 +1,9 @@
 import "./WritePost.css"
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const WritePost = ({ operation, submitText }) => {
+    const { id } = useParams();
 
     return (
         <form onSubmit={operation}>

@@ -20,13 +20,6 @@ const PostView = () => {
         window.location = "/"
     }
 
-    // }
-    // const Comment = async () => {
-    //     await supabase
-    //         .from('Posts')
-
-    // }
-
     const sendComment = async (e) => {
         e.preventDefault();
         if (e.key === 'Enter') {
@@ -89,7 +82,7 @@ const PostView = () => {
         <div>
             {post ?
                 <div>
-                    <h2>{post.name}</h2>
+                    <h2>{post.title}</h2>
                     <h2>{post.content}</h2>
                     <img src={post.image} />
                     <div className="buttons">
@@ -99,7 +92,7 @@ const PostView = () => {
                             />
                             <p>{post.upvotes} upvotes</p>
                         </button>
-                        <button className="edit">
+                        <button className="edit" onClick={() => (window.location=`/edit/${id}`)}>
                             <FontAwesomeIcon icon={faPen} />
                         </button>
                         <button className="delete" onClick={deletePost}>
