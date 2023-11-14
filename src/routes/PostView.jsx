@@ -8,6 +8,26 @@ import "./PostView.css";
 const PostView = () => {
     const { id } = useParams();
     const [post, setPost] = useState(null)
+    const [comments, setComments] = useState(null)
+    const [addedComments, setAddedComments] = useState(0)
+
+    const sendComment = async (e) => {
+        // e.preventDefault();
+        if (e.key === 'Enter') {
+
+            console.log(e.target.value)
+
+            // Insert the e into the database
+            await supabase
+                .from('Comments')
+                .insert({ content: e.target.value, userId: id })
+                .select()
+
+            setAddedComments(addedComments + 1)
+            // Redirect to the home page
+            // window.location = "/";
+        }
+    };
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -23,7 +43,18 @@ const PostView = () => {
             }
         };
         fetchPost()
-    }, []);
+    }, [])
+
+    useEffect(() => {
+        const fetchComments = async () => {
+            const { data } = await supabase
+                .from("Comments")
+                .select()
+                .eq("userId", id)
+            setComments(data)
+        }
+        fetchComments()
+    }, [addedComments])
 
     return (
         <div>
@@ -46,11 +77,18 @@ const PostView = () => {
                             <FontAwesomeIcon icon={faTrash} />
                         </button>
                     </div>
-
+                    <div className="commentsBox">
+                        {comments ? comments.map((comment) => (
+                            <p>{comment.content}</p>
+                        ))
+                            :
+                            null}
+                        <input type="text" placeholder="Leave a comment..." onKeyUp={sendComment}></input>
+                    </div>
                 </div>
                 : null}
         </div>
     );
-};
+}
 
 export default PostView;
