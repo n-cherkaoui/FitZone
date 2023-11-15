@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import HomeFeed from "../components/HomeFeed";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPen } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
 import "./TopNav.css"
 
@@ -20,7 +20,10 @@ const TopNav = () => {
                 <Link to="/"><h1>FitZone</h1></Link>
                 <div className="subNav">
                     {location.pathname === "/" ?
-                        <input id="searchBar" type="text" placeholder="Search" onChange={handleChange}></input>
+                        <div className="searchBox">
+                            <FontAwesomeIcon className="searchIcon" icon={faSearch} style={{color: "#000000"}}/>
+                            <input className="searchBar" type="text" placeholder="Search" onChange={handleChange}></input>
+                        </div>
                         : null}
                     <div className="navButtons">
                         <Link to="/create">
@@ -30,7 +33,7 @@ const TopNav = () => {
                 </div>
             </div>
             <Outlet context={{ searchField: { searchField } }} />
-        </div>
+        </div >
     )
 }
 

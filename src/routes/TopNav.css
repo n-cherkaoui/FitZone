@@ -23,18 +23,41 @@
     background-color: #111
 }
 
-#searchBar {
-    border-radius: 6px;
-    height: 2.375rem;
-    min-width: 12.5rem;
-    position: relative;
+.searchBox {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: white;
+    border-radius: 1.375rem;
+    min-width: 16.75rem;
+}
+
+.searchBar {
+    height: 2rem;
+    background-color: transparent;
+    border-color: transparent;
+    /* position: relative; */
+    color: #666;
     /* right: 0; */
     /* width:  */
     /* margin-top: 20%; */
+}
+
+.searchBar:focus {
+    outline: none;
+}
+
+.searchIcon {
+   margin: 0 10px;
 }
 
 .subNav {
     display: flex;
     width: 15vw;
     justify-content: right;
+    align-items: center;
+}
+
+.navButtons {
+    margin: .9375rem;
 }
