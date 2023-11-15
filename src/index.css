@@ -12,15 +12,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --small: 16px;
+  --medium: 22px;
+  --large: 28px;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: white;
 }
 
 body {
@@ -32,8 +35,17 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  /* font-size: 3.2em; */
   line-height: 1.1;
+  font-size: var(--large);
+}
+
+h2 {
+  font-size: var(--medium)
+}
+
+p {
+  font-size: var(--small)
 }
 
 button {

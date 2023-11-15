@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom/client'
-import App from 'src/App.jsx'
-import 'src/index.css'
+import App from './App.jsx'
+import './index.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreatePost from "src/routes/CreatePost"
-import TopNav from 'src/routes/TopNav.jsx';
-import PostView from 'src/routes/PostView.jsx';
-import EditView from 'src/routes/EditView.jsx';
+import CreatePost from "./routes/CreatePost"
+import TopNav from './routes/TopNav.jsx';
+import PostView from './routes/PostView.jsx';
+import EditView from './routes/EditView.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
