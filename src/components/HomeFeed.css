@@ -1,0 +1,18 @@
+.homeFeed{
+    width: 86%;
+}
+
+.filters {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.filterButton {
+    height: 2.5rem;
+    margin-right: 10px;
+}
+
+.filters,p {
+    margin-right: 10px;
+}

@@ -42,8 +42,9 @@ const HomeFeed = ({searchField}) => {
     }
 
     return (
-        <div className="HomeFeed">
+        <div className="homeFeed">
             <div className="filters">
+                <p>Order By: </p>
                 <button className="filterButton" onClick={sortPostsByDate}>Newest</button>
                 <button className="filterButton" onClick={sortPostsByUpvotes}>Most Popular</button>
             </div>
