@@ -21,7 +21,8 @@
     /* flex-direction: column; */
     align-items: center;
     justify-content: space-between;
-    background-color: #111
+    background-color: #111;
+    margin-bottom: 20px;
 }
 
 .searchBox {
@@ -62,3 +63,7 @@
 .navButtons {
     margin: .9375rem;
 }
+
+/* .contentPage {
+    width: 100%;
+} */

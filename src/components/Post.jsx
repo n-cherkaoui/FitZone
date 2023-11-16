@@ -1,8 +1,12 @@
 import "./Post.css"
+import { supabase } from "../../client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { useState, setState } from "react";
 
-const Post = ({ timeCreated, title, upvotes }) => {
+const Post = ({ id, timeCreated, title, upvotes }) => {
+    const [upvoteVar, setUpvotesVar] = useState(upvotes);
+
     return (
         <div className="post">
             <h2 className="title">{title}</h2>
@@ -11,9 +15,9 @@ const Post = ({ timeCreated, title, upvotes }) => {
                     <p>
                         {upvotes}
                     </p>
-                    <FontAwesomeIcon
-                        icon={faThumbsUp}
-                    />
+                        <FontAwesomeIcon className="upvoteIcon"
+                            icon={faThumbsUp}
+                        />
                 </div>
                 <p className="timestamp">Posted {timeCreated}</p>
             </div>

@@ -58,7 +58,7 @@ const HomeFeed = ({ searchField }) => {
             </div>
             {filteredPosts ? (filteredPosts.map((post, index) => (
                 <Link key={index} className="posts" to={`/${post.id}`}>
-                    <Post timeCreated={moment(post.created_at).fromNow()} title={post.title} upvotes={post.upvotes} />
+                    <Post id= {post.id} timeCreated={moment(post.created_at).fromNow()} title={post.title} upvotes={post.upvotes} />
                 </Link>
             ))) : null}
         </div>

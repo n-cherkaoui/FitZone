@@ -24,3 +24,7 @@
     font-style: italic;
     color: var(--gray);
 }
+
+.upvoteIcon {
+    font-size: var(--small);
+}

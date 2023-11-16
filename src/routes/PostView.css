@@ -1,0 +1,23 @@
+.contentPage {
+    width: 50%;
+}
+
+.window {
+    background-color: var(--gray);
+    border-radius: 6px;
+}
+
+.postImage {
+    object-fit: cover;
+    width: 50%;
+}
+
+.buttons,button {
+    min-width: 83.75px;
+    height: 3em;
+}
+
+.upvote {
+    display: flex;
+    align-items: center;
+}

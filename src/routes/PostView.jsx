@@ -79,18 +79,18 @@ const PostView = () => {
     }, [addedComments])
 
     return (
-        <div>
+        <div className="contentPage">
             {post ?
-                <div>
+                <div className="window">
                     <h2>{post.title}</h2>
                     <p>{post.content}</p>
-                    <img src={post.image} />
+                    <img className="postImage" src={post.image} />
                     <div className="buttons">
                         <button className="upvote" onClick={addUpvote}>
+                            <p>{post.upvotes}</p>
                             <FontAwesomeIcon
                                 icon={faThumbsUp}
                             />
-                            <p>{post.upvotes} upvotes</p>
                         </button>
                         <button className="edit" onClick={() => (window.location=`/edit/${id}`)}>
                             <FontAwesomeIcon icon={faPen} />
