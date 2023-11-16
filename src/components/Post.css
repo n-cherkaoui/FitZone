@@ -1,5 +1,26 @@
 .post {
     color: var(--black);
-    border: 1px solid rgba(128, 128, 128, 0.526);
+    border: 1px solid var(--gray);
     margin-bottom: -1px;
+    align-items: center;
+    /* justify-content: center; */
+    display:flex;
+    flex-direction: column;
+    font-size: var(--verySmall)
+}
+
+.postInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.upvotes {
+    display: flex;
+    align-items: center;
+}
+
+.timestamp {
+    font-style: italic;
+    color: var(--gray);
 }

@@ -3,10 +3,18 @@ import './HomeFeed.css'
 import { supabase } from '../../client'
 import { Link } from "react-router-dom"
 import Post from "../components/Post";
+import moment from 'moment-timezone';
 
-const HomeFeed = ({searchField}) => {
+const HomeFeed = ({ searchField }) => {
     const [posts, setPosts] = useState([])
     const [filteredPosts, setFilteredPosts] = useState([])
+
+    // Format the difference into a readable string
+    const getCurrentDate = (timeStamp) => {
+    
+        // console.log(readableFormat)
+        return readableFormat
+    }
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -33,7 +41,7 @@ const HomeFeed = ({searchField}) => {
         var temp = [...filteredPosts]
         temp.sort((a, b) => (Date.parse(b.created_at) - Date.parse(a.created_at)))
         setFilteredPosts(temp)
-    } 
+    }
 
     const sortPostsByUpvotes = () => {
         var temp = [...filteredPosts]
@@ -50,7 +58,7 @@ const HomeFeed = ({searchField}) => {
             </div>
             {filteredPosts ? (filteredPosts.map((post, index) => (
                 <Link key={index} className="posts" to={`/${post.id}`}>
-                    <Post timeCreated={post.created_at} title={post.title} upvotes={post.upvotes} />
+                    <Post timeCreated={moment(post.created_at).fromNow()} title={post.title} upvotes={post.upvotes} />
                 </Link>
             ))) : null}
         </div>

@@ -15,9 +15,11 @@
   --small: 16px;
   --medium: 22px;
   --large: 28px;
+  --verySmall: 11px;
   --blue: #00547A;
   --white: white;
   --black: black;
+  --gray: rgba(128, 128, 128, 0.669);
 }
 
 a {
@@ -35,6 +37,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--white);
 }
 
 h1 {
