@@ -49,7 +49,7 @@ const HomeFeed = ({searchField}) => {
                 <button className="filterButton" onClick={sortPostsByUpvotes}>Most Popular</button>
             </div>
             {filteredPosts ? (filteredPosts.map((post, index) => (
-                <Link key={index} className="post" to={`/${post.id}`}>
+                <Link key={index} className="posts" to={`/${post.id}`}>
                     <Post timeCreated={post.created_at} title={post.title} upvotes={post.upvotes} />
                 </Link>
             ))) : null}

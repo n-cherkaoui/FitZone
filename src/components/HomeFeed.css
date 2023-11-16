@@ -1,5 +1,6 @@
 .homeFeed{
     width: 86%;
+    color: black;
 }
 
 .filters {
@@ -11,6 +12,7 @@
 .filterButton {
     height: 2.5rem;
     margin-right: 10px;
+    background-color: var(--blue);
 }
 
 .filters,p {

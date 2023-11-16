@@ -15,6 +15,9 @@
   --small: 16px;
   --medium: 22px;
   --large: 28px;
+  --blue: #00547A;
+  --white: white;
+  --black: black;
 }
 
 a {
@@ -41,8 +44,10 @@ h1 {
 }
 
 h2 {
-  font-size: var(--medium)
+  font-size: var(--medium);
+  color: var(--blue);
 }
+
 
 p {
   font-size: var(--small)
@@ -55,7 +60,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--blue);
   cursor: pointer;
   transition: border-color 0.25s;
 }

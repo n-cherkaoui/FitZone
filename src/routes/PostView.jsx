@@ -83,7 +83,7 @@ const PostView = () => {
             {post ?
                 <div>
                     <h2>{post.title}</h2>
-                    <h2>{post.content}</h2>
+                    <p>{post.content}</p>
                     <img src={post.image} />
                     <div className="buttons">
                         <button className="upvote" onClick={addUpvote}>
