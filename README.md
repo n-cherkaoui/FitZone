@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] Hosted site on vercel (Had technical difficulties with Netifly) 
+* [X] Hosted site on vercel (Had technical difficulties with Netifly): https://fit-zone-xdrh-nawtvy9r9-n-cherkaoui.vercel.app/
 
 ## Video Walkthrough
 
