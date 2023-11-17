@@ -1,0 +1,45 @@
+/* .postView {
+    height: 50%;
+} */
+
+.writePostWrapper {
+    background-color: var(--gray);
+    height: 30rem;
+    width: 40rem;
+    border-radius: 6px;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBoxes {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.inputBox {
+    min-width: 215px;
+    width: 90%;
+    margin-bottom: 2%;
+}
+
+textarea {
+    margin-top: 5px;
+    width: 100.3%;
+    /* height: 30%; */
+}
+
+.inputBox input {
+    width: 100%;
+}
+
+.submitButton {
+    margin-top: -10px;
+}
+

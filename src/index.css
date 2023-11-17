@@ -51,9 +51,19 @@ h2 {
   color: var(--blue);
 }
 
-
 p {
-  font-size: var(--small)
+  font-size: var(--small);
+}
+
+input,textarea {
+  background-color: var(--white);
+  border-color: transparent;
+  color: var(--black);
+  font-size: var(--small);
+}
+
+input:focus,textarea:focus {
+  outline: none;
 }
 
 button {

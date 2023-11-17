@@ -8,6 +8,11 @@ const EditView = () => {
     const { id } = useParams();
 
     const editPost = async (e) => {
+        if (e.target.title.value === ''){
+            alert("Post title is required.")
+            return
+        }
+        
         e.preventDefault();
         // console.log(e.target.title.value)
 

@@ -6,8 +6,12 @@ const CreatePost = () => {
 //   const submitButton = <button type="submit">Create Post</button>
 
   const createPost = async (e) => {
+    if (e.target.title.value === ''){
+        alert("Post title is required.")
+        return
+    }
+
     e.preventDefault();
-    console.log(e.target.title.value)
 
     // Insert the e into the database
     await supabase
@@ -20,8 +24,8 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
-      <h1>Create a new post!</h1>
+    <div className="postView">
+      <h1 className="customHeading">Create a new post!</h1>
       <WritePost operation={createPost} submitText="Create Post"/>
     </div>
   );

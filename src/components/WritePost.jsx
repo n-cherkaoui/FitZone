@@ -6,7 +6,7 @@ const WritePost = ({ operation, submitText }) => {
     const { id } = useParams();
 
     return (
-        <form onSubmit={operation}>
+        <form className="writePostWrapper" onSubmit={operation}>
             <div className="inputBoxes">
                 <div className="inputBox">
                     <label for="title"></label>
@@ -20,9 +20,10 @@ const WritePost = ({ operation, submitText }) => {
 
                 <div className="inputBox">
                     <label for="content"></label>
-                    <input
-                        type="text"
+                    <textarea
+                        // type="text"
                         id="content"
+                        rows="10"
                         placeholder="Content (Optional)"
                     />
                 </div>
@@ -38,7 +39,7 @@ const WritePost = ({ operation, submitText }) => {
                 </div>
             </div>
 
-            <button type="submit">{submitText}</button>
+            <button className="submitButton" type="submit">{submitText}</button>
         </form>
     )
 }

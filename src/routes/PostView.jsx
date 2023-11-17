@@ -3,6 +3,7 @@ import { supabase } from "../../client";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
+import moment from 'moment-timezone';
 import "./PostView.css";
 
 const PostView = () => {
@@ -82,9 +83,10 @@ const PostView = () => {
         <div className="contentPage">
             {post ?
                 <div className="window">
+                    <p className="timeStamp">{moment(post.created_at).fromNow()}</p>
                     <h2>{post.title}</h2>
-                    <p>{post.content}</p>
-                    <img className="postImage" src={post.image} />
+                    {post.content ? <p>{post.content}</p> : null}
+                    {post.image ? <img className="postImage" src={post.image} /> : null}
                     <div className="buttons">
                         <button className="upvote" onClick={addUpvote}>
                             <p>{post.upvotes}</p>
@@ -92,24 +94,27 @@ const PostView = () => {
                                 icon={faThumbsUp}
                             />
                         </button>
-                        <button className="edit" onClick={() => (window.location=`/edit/${id}`)}>
-                            <FontAwesomeIcon icon={faPen} />
-                        </button>
-                        <button className="delete" onClick={deletePost}>
-                            <FontAwesomeIcon icon={faTrash} />
-                        </button>
+
+                        <div className="customizationButtons">
+                            <button className="edit" onClick={() => (window.location = `/edit/${id}`)}>
+                                <FontAwesomeIcon icon={faPen} />
+                            </button>
+                            <button className="delete" onClick={deletePost}>
+                                <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                        </div>
                     </div>
                     <div className="commentsBox">
                         {comments ? comments.map((comment) => (
-                            <p>{comment.content}</p>
+                            <p> - {comment.content}</p>
                         ))
                             :
                             null}
-                        <input type="text" placeholder="Leave a comment..." onKeyUp={sendComment}></input>
+                        <input type="text" className="commentInput" placeholder="Leave a comment..." onKeyUp={sendComment}></input>
                     </div>
                 </div>
                 : null}
-        </div>
+        </div >
     );
 }
 
